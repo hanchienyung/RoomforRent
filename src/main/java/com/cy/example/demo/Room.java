@@ -16,32 +16,31 @@ public class Room {
     private long id;
 
     @NotNull
-    @Size(min=2)
+    @Size(min = 2)
     private String address;
 
     @NotNull
-    @Size(min=3)
+    @Size(min = 3)
     private String city;
 
     @NotNull
-    @Size(min=1)
+    @Size(min = 1)
     private String state;
 
     @NotNull
-    @Size(min=1)
+    @Size(min = 1)
     private String price;
 
     @NotNull
-    @Size(min=1)
+    @Size(min = 1)
     private String description;
 
     @NotNull
-    @Size(min=1)
+    @Size(min = 1)
     private String rules;
 
 
     private Boolean wifi;
-
 
 
     //@Value("none basic premium")
@@ -51,8 +50,9 @@ public class Room {
     private Boolean privbath;
 
 
-
     private Boolean isRented;
+
+    private Boolean isPrivate;
 
 
     //private Boolean isRoomPublic;
@@ -60,6 +60,7 @@ public class Room {
 
     public Room() {
         isRented = Boolean.FALSE;
+        isPrivate = Boolean.FALSE;
     }
 
 
@@ -143,12 +144,19 @@ public class Room {
         this.privbath = privbath;
     }
 
-    public Boolean getIsRented() {
+    public Boolean getRented() {
         return isRented;
     }
 
-    public void setIsRented(Boolean rented) {
+    public void setRented(Boolean rented) {
         isRented = rented;
     }
-}
 
+    public Boolean getPrivate() {
+        return isPrivate;
+    }
+
+    public void setPrivate(Boolean aPrivate) {
+        isPrivate = this.aPrivate;
+    }
+}

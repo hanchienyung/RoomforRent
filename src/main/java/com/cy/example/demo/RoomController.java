@@ -36,6 +36,12 @@ public class RoomController {
         return "listroom";
     }
 
+    @RequestMapping("/listprivroom")
+    public String listprivateroomForm(Model model) {
+        model.addAttribute("rooms", roomRepository.findRoomByIsPrivate(Boolean.TRUE));
+        return "listroom";
+    }
+
 
     @RequestMapping("/addroom")
     public String roomForm(Model model) {
@@ -68,7 +74,7 @@ public class RoomController {
         //System.out.println("Entering processrentform id = " +id);
         List <Room> rooms = roomRepository.findRoomById(Long.parseLong(id));
         for (Room room: rooms) {
-            room.setIsRented(Boolean.TRUE);
+            room.setRented(Boolean.TRUE);
             roomRepository.save(room);
         }
 
@@ -119,7 +125,7 @@ public class RoomController {
     {
         List <Room> rooms = roomRepository.findRoomById(Long.parseLong(id));
         for (Room room: rooms) {
-            room.setIsRented(Boolean.FALSE);
+            room.setRented(Boolean.FALSE);
             roomRepository.save(room);
 
         }

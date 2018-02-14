@@ -113,7 +113,7 @@
     <label>Wifi: Yes &nbsp; <input type="radio" value="yes" th:field="*{wifi}"/> &nbsp;&nbsp;
                  No &nbsp; <input type="radio" value="no" th:field="*{wifi}"/>
     </label>
-
+    <br />
     <span th:if="${#fields.hasErrors('cable')}"
           th:errors="*{cable}"></span><br />
     Cable: <select th:field="*{cable}">
@@ -137,8 +137,13 @@
     <label>Private Bath: Yes &nbsp; <input type="radio" value="yes" th:field="*{privbath}"/> &nbsp;&nbsp;
                          No &nbsp; <input type="radio" value="no" th:field="*{privbath}"/>
     </label>
-
     <br />
+    <span th:if="${#fields.hasErrors('aPrivate')}"
+          th:errors="*{aPrivate}"></span><br />
+    <label>Private Listing: Yes &nbsp; <input type="radio" value="yes" th:field="*{isPrivate}"/> &nbsp;&nbsp;
+                            No &nbsp; <input type="radio" value="no" th:field="*{isPrivate}"/>
+    </label>
+
 
     <input type="submit" value="Add" />
 

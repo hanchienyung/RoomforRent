@@ -45,7 +45,10 @@
     <div class="col-sm" th:text="${room.state}"></div>
     <div class="col-sm" th:text="${room.price}"></div>
     <div class="col-sm"><a th:href="@{/processdetail(id=${room.id})}">Detail</a></div>
-    <div class="col-sm" th:text="${room.isRented}"></div>
+
+    <span th:if="${room.getIsRented()}=true" th:text="Rented"></span>
+    <span th:unless="${room.getIsRented()}=true" th:text="Available"></span>
+    <!--<div class="col-sm" th:text="${room.isRented}"></div>-->
 
 
 
