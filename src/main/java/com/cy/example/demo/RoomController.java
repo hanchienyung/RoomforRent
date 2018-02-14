@@ -29,6 +29,10 @@ public class RoomController {
     public String login(){
         return "login";
     }
+    @RequestMapping("/admin")
+    public String admin(){
+        return "admin";
+    }
 
     @RequestMapping("/listroom")
     public String listroomForm(Model model) {
