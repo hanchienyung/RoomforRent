@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
+    <link href="https://fonts.googleapis.com/css?family=Caveat Brush" rel="stylesheet" />
+    <link href="./css/stylesheet.css" rel="stylesheet" />
+</head>
+<body>
+<nav class="navbar navbar-expand-sm bg-light">
+    <ul class="navbar-nav nav-pills">
+        <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" href="listroom">List Rooms</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="addroom">Add a room</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="rentroom">Rent a room</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="returnroom">Return a room</a>
+        </li>
+    </ul>
+</nav>
+<br />
+
+<form action="#"
+      th:action="@{/processdetail}"
+      th:object="${room}"
+      th:method="post">
+    <div class="subhead bluetext"> Detail of a Room </div>
+    <br />
+    <div class="row">
+        <div class="col-sm reporthead bluetext">Description</div>
+        <div class="col-sm reporthead bluetext">Rules</div>
+        <div class="col-sm reporthead bluetext">Wifi</div>
+        <div class="col-sm reporthead bluetext">Cable</div>
+        <div class="col-sm reporthead bluetext">Private Bath</div>
+        <div class="col-sm reporthead bluetext">Is Rented</div>
+    </div>
+    <div  class="row" th:each="room : ${rooms}">
+        <div class="col-sm" th:text="${room.description}"></div>
+        <div class="col-sm" th:text="${room.rules}"></div>
+        <div class="col-sm" th:text="${room.wifi}"></div>
+        <div class="col-sm" th:text="${room.cable}"></div>
+        <div class="col-sm" th:text="${room.privbath}"></div>
+        <div class="col-sm" th:text="${room.isRented}"></div>
+    </div>
+    <br />
+</form>
+</body>
+</html>

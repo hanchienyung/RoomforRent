@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Return a Room to the List</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
+    <link href="https://fonts.googleapis.com/css?family=Caveat Brush" rel="stylesheet" />
+    <link href="./css/stylesheet.css" rel="stylesheet" />
+</head>
+<body>
+<nav class="navbar navbar-expand-sm bg-light">
+    <ul class="navbar-nav nav-pills">
+        <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="listroom">List rooms</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="addroom">Add a room</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="borrowbook">Rent a room</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active"  href="returnroomk">Return a room</a>
+        </li>
+    </ul>
+</nav>
+
+<div class="subhead"> List of Rooms </div>
+<br />
+<form action="#"
+      th:action="@{/processreturn}"
+      th:object="${rooms}"
+      th:method="post">
+
+    <div class="row">
+        <div class="col-sm reporthead bluetext">Address</div>
+        <div class="col-sm reporthead bluetext">City</div>
+        <div class="col-sm reporthead bluetext">State</div>
+        <div class="col-sm reporthead bluetext">Price</div>
+        <div class="col-sm reporthead bluetext">Detail</div>
+        <div class="col-sm reporthead bluetext">Is Rented</div>
+        <div class="col-sm reporthead bluetext">Return</div>
+
+    </div>
+    <div class="row" th:each="room : ${rooms}">
+        <div class="col-sm" th:text="${room.address}"></div>
+        <div class="col-sm" th:text="${room.city}"></div>
+        <div class="col-sm" th:text="${room.state}"></div>
+        <div class="col-sm" th:text="${room.price}"></div>
+        <div class="col-sm"><a th:href="@{/processdetail(id=${room.id})}">Detail</a></div>
+        <div class="col-sm" th:text="${room.isRented}"></div>
+        <div class="col-sm"><a th:href="@{/processreturn(id=${room.id})}">Return</a></div>
+
+
+    </div>
+
+
+</form>
+</body>
+</html>
