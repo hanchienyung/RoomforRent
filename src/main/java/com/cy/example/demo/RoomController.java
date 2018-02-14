@@ -25,6 +25,11 @@ public class RoomController {
         return "mainpage";
     }
 
+    @RequestMapping("/login")
+    public String login(){
+        return "login";
+    }
+
     @RequestMapping("/listroom")
     public String listroomForm(Model model) {
         model.addAttribute("rooms", roomRepository.findAll());
