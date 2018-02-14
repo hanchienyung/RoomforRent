@@ -14,10 +14,16 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception{
         http
                 .authorizeRequests()
+                .antMatchers("/")
+                .access("hasAuthority('USER') or hasAuthority('ADMIN')")
+                .antMatchers("/admin")
+                .access("hasAuthority('ADMIN')")
                 .anyRequest()
                 .authenticated()
                 .and()
                 .formLogin()
+                .loginPage("/login")
+                .permitAll()
                 .and()
                 .httpBasic();
     }
@@ -25,8 +31,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected  void configure(AuthenticationManagerBuilder auth) throws Exception{
         auth
                 .inMemoryAuthentication()
+                .withUser("USER")
+                .password("password")
+                .roles("USER")
+                .and()
                 .withUser("DaveWolf")
-                .password("beastmaster").roles("USER");
+                .password("beastmaster").roles("ADMIN");
     }
 
 }
