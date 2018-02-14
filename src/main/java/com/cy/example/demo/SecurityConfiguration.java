@@ -39,4 +39,5 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .password("beastmaster").roles("ADMIN");
     }
 
+
 }

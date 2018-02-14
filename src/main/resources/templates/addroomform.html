@@ -105,18 +105,38 @@
     Rules :<input type="text" th:field="*{rules}" />
     <span th:if="${#fields.hasErrors('rules')}"
           th:errors="*{rules}"></span><br />
-
-    Wifi :<input type="text" th:field="*{wifi}" />
+    <!-- Wifi :<input type="" th:field="*{wifi}" />
+    <span th:if="${#fields.hasErrors('wifi')}"
+          th:errors="*{wifi}"></span><br />-->
     <span th:if="${#fields.hasErrors('wifi')}"
           th:errors="*{wifi}"></span><br />
+    <label>Wifi: Yes &nbsp; <input type="radio" value="yes" th:field="*{wifi}"/> &nbsp;&nbsp;
+                 No &nbsp; <input type="radio" value="no" th:field="*{wifi}"/>
+    </label>
 
-    Cable :<input type="text" th:field="*{cable}" />
     <span th:if="${#fields.hasErrors('cable')}"
           th:errors="*{cable}"></span><br />
+    Cable: <select th:field="*{cable}">
+        <!--<option value="" disabled="disabled" selected="selected">Select cable</option-->>
+        <option value="none">none</option>
+        <option value="basic">basic</option>
+        <option value="premium">premium</option>
+    </select>
 
-    Private Bath :<input type="text" th:field="*{privbath}" />
+   <!-- Wifi :<input type="" th:field="*{wifi}" />
+    <span th:if="${#fields.hasErrors('wifi')}"
+          th:errors="*{wifi}"></span><br />-->
+
+   <!-- Cable :<input type="text" th:field="*{cable}" />
+    <span th:if="${#fields.hasErrors('cable')}"
+          th:errors="*{cable}"></span><br />-->
+
+    <!--Private Bath :<input type="text" th:field="*{privbath}" />-->
     <span th:if="${#fields.hasErrors('privbath')}"
           th:errors="*{privbath}"></span><br />
+    <label>Private Bath: Yes &nbsp; <input type="radio" value="yes" th:field="*{privbath}"/> &nbsp;&nbsp;
+                         No &nbsp; <input type="radio" value="no" th:field="*{privbath}"/>
+    </label>
 
     <br />
 

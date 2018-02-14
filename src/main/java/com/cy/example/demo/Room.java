@@ -39,21 +39,19 @@ public class Room {
     @Size(min=1)
     private String rules;
 
-    @NotNull
-    @Size(min=1)
+
     private Boolean wifi;
 
-    @NotNull
-    @Size(min=1)
+
+
     //@Value("none basic premium")
     private String cable;
 
-    @NotNull
-    @Size(min=1)
+
     private Boolean privbath;
 
 
-    @Size(min=1)
+
     private Boolean isRented;
 
 
