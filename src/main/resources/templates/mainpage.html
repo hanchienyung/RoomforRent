@@ -17,11 +17,16 @@
             <a class="nav-link " href="listroom">List Rooms</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link " href="listprivroom">List Private Rooms</a>
+
+               <a class="nav-link " href="listprivroom">List Private Rooms</a>
+
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="addroom">Add a room</a>
+        <sec:authorize access="hasAuthorities('admin')">
+            <li class="nav-item" >
+                <a class="nav-link" href="addroom">Add a room</a>
+
         </li>
+        </sec:authorize>
         <li class="nav-item">
             <a class="nav-link" href="rentroom">Rent a room</a>
         </li>
@@ -30,6 +35,13 @@
         </li>
     </ul>
 </nav>
+this is main page
+
+Roles: <span sec:authentication="principal.authorities">[USER, ADMIN]</span>
+
+<form action="#">
+    <input type="submit" name="submit" value="Logout" />
+</form>
 <br />
 <div class="subhead bluetext"> List of Rooms </div>
 <br />
