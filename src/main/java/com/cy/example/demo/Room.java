@@ -39,28 +39,24 @@ public class Room {
     @Size(min = 1)
     private String rules;
 
-
     private Boolean wifi;
-
 
     //@Value("none basic premium")
     private String cable;
 
-
     private Boolean privbath;
 
+    private Boolean rented;
 
-    private Boolean isRented;
-
-    private Boolean isPrivate;
+    private Boolean privte;
 
 
     //private Boolean isRoomPublic;
 
 
     public Room() {
-        isRented = Boolean.FALSE;
-        isPrivate = Boolean.FALSE;
+        rented = Boolean.FALSE;
+        privte = Boolean.FALSE;
     }
 
 
@@ -145,18 +141,20 @@ public class Room {
     }
 
     public Boolean getRented() {
-        return isRented;
+        return rented;
     }
 
     public void setRented(Boolean rented) {
-        isRented = rented;
+        this.rented = rented;
     }
 
-    public Boolean getPrivate() {
-        return isPrivate;
+    public Boolean getPrivte() {
+        return privte;
     }
 
-    public void setPrivate(Boolean aPrivate) {
-        isPrivate = this.aPrivate;
+    public void setPrivte(Boolean privte) {
+        this.privte = privte;
     }
 }
+
+

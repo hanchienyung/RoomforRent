@@ -20,10 +20,10 @@
             <a class="nav-link" href="addroom">Add a room</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="borrowbook">Rent a room</a>
+            <a class="nav-link" href="rentroom">Rent a room</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link active"  href="returnroomk">Return a room</a>
+            <a class="nav-link active"  href="returnroom">Return a room</a>
         </li>
     </ul>
 </nav>
@@ -51,7 +51,8 @@
         <div class="col-sm" th:text="${room.state}"></div>
         <div class="col-sm" th:text="${room.price}"></div>
         <div class="col-sm"><a th:href="@{/processdetail(id=${room.id})}">Detail</a></div>
-        <div class="col-sm" th:text="${room.isRented}"></div>
+        <div class="col-sm" th:if="${room.getRented()}==true" th:text="Yes"></div>
+        <div class="col-sm" th:unless="${room.getRented()}==true" th:text="No"></div>
         <div class="col-sm"><a th:href="@{/processreturn(id=${room.id})}">Return</a></div>
 
 

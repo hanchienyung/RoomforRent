@@ -49,7 +49,8 @@
         <div class="col-sm" th:text="${room.state}"></div>
         <div class="col-sm" th:text="${room.price}"></div>
         <div class="col-sm"><a th:href="@{/processdetail(id=${room.id})}">Detail</a></div>
-        <div class="col-sm" th:text="${room.isRented}"></div>
+        <div class="col-sm" th:if="${room.getRented()}==true" th:text="Yes"></div>
+        <div class="col-sm" th:unless="${room.getRented()}==true" th:text="No"></div>
         <div class="col-sm"><a th:href="@{/processrent(id=${room.id})}">Rent</a></div>
     </div>
 

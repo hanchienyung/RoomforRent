@@ -36,12 +36,11 @@
     <div class="subhead bluetext"> Detail of a Room </div>
     <br />
     <div class="row">
+        <div class="col-sm reporthead bluetext">Private</div>
         <div class="col-sm reporthead bluetext">Address</div>
         <div class="col-sm reporthead bluetext">City</div>
         <div class="col-sm reporthead bluetext">State</div>
         <div class="col-sm reporthead bluetext">Price</div>
-
-        <div class="col-sm reporthead bluetext">Is Rented</div>
         <div class="col-sm reporthead bluetext">Description</div>
         <div class="col-sm reporthead bluetext">Rules</div>
         <div class="col-sm reporthead bluetext">Wifi</div>
@@ -50,18 +49,21 @@
         <div class="col-sm reporthead bluetext">Is Rented</div>
     </div>
     <div  class="row" th:each="room : ${rooms}">
+        <div class="col-sm" th:if="${room.getPrivte()}==true" th:text="Yes"></div>
+        <div class="col-sm" th:unless="${room.getPrivte()}==true" th:text="No"></div>
         <div class="col-sm" th:text="${room.address}"></div>
         <div class="col-sm" th:text="${room.city}"></div>
         <div class="col-sm" th:text="${room.state}"></div>
         <div class="col-sm" th:text="${room.price}"></div>
-
-        <div class="col-sm" th:text="${room.isRented}"></div>
         <div class="col-sm" th:text="${room.description}"></div>
         <div class="col-sm" th:text="${room.rules}"></div>
-        <div class="col-sm" th:text="${room.wifi}"></div>
+        <div class="col-sm" th:if="${room.getWifi()}==true" th:text="Yes"></div>
+        <div class="col-sm" th:unless="${room.getWifi()}==true" th:text="No"></div>
         <div class="col-sm" th:text="${room.cable}"></div>
-        <div class="col-sm" th:text="${room.privbath}"></div>
-        <div class="col-sm" th:text="${room.isRented}"></div>
+        <div class="col-sm" th:if="${room.getPrivbath()}==true" th:text="Yes"></div>
+        <div class="col-sm" th:unless="${room.getPrivbath()}==true" th:text="No"></div>
+        <div class="col-sm" th:if="${room.getRented()}==true" th:text="Yes"></div>
+        <div class="col-sm" th:unless="${room.getRented()}==true" th:text="No"></div>
     </div>
     <br />
 </form>

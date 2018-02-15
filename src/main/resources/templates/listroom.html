@@ -31,6 +31,7 @@
 <div class="subhead bluetext"> List of Rooms </div>
 <br />
 <div class="row">
+    <div class="col-sm reporthead bluetext">Private</div>
     <div class="col-sm reporthead bluetext">Address</div>
     <div class="col-sm reporthead bluetext">City</div>
     <div class="col-sm reporthead bluetext">State</div>
@@ -40,14 +41,16 @@
 
 </div>
 <div  class="row" th:each="room : ${rooms}">
+    <div class="col-sm" th:if="${room.getPrivte()}==true" th:text="Yes"></div>
+    <div class="col-sm" th:unless="${room.getPrivte()}==true" th:text="No"></div>
     <div class="col-sm" th:text="${room.address}"></div>
     <div class="col-sm" th:text="${room.city}"></div>
     <div class="col-sm" th:text="${room.state}"></div>
     <div class="col-sm" th:text="${room.price}"></div>
     <div class="col-sm"><a th:href="@{/processdetail(id=${room.id})}">Detail</a></div>
 
-    <span th:if="${room.getIsRented()}=true" th:text="Rented"></span>
-    <span th:unless="${room.getIsRented()}=true" th:text="Available"></span>
+    <div class="col-sm" th:if="${room.getRented()}==true" th:text="Yes"></div>
+    <div class="col-sm" th:unless="${room.getRented()}==true" th:text="No"></div>
     <!--<div class="col-sm" th:text="${room.isRented}"></div>-->
 
 

@@ -42,7 +42,7 @@ public class RoomController {
 
     @RequestMapping("/listprivroom")
     public String listprivateroomForm(Model model) {
-        model.addAttribute("rooms", roomRepository.findRoomByIsPrivate(Boolean.TRUE));
+        model.addAttribute("rooms", roomRepository.findRoomByPrivte(Boolean.TRUE));
         return "listroom";
     }
 
@@ -61,13 +61,13 @@ public class RoomController {
 
     @RequestMapping("/rentroom")
     public String rentroomForm(Model model) {
-        model.addAttribute("rooms", roomRepository.findRoomByisRented("N"));
+        model.addAttribute("rooms", roomRepository.findRoomByRented(Boolean.FALSE));
         return "rentroomform";
     }
 
     @RequestMapping("/returnroom")
     public String returnroomForm(Model model) {
-        model.addAttribute("rooms", roomRepository.findRoomByisRented("Y"));
+        model.addAttribute("rooms", roomRepository.findRoomByRented(Boolean.TRUE));
         return "returnroomform";
     }
 

@@ -138,12 +138,12 @@
                          No &nbsp; <input type="radio" value="no" th:field="*{privbath}"/>
     </label>
     <br />
-    <span th:if="${#fields.hasErrors('aPrivate')}"
-          th:errors="*{aPrivate}"></span><br />
-    <label>Private Listing: Yes &nbsp; <input type="radio" value="yes" th:field="*{isPrivate}"/> &nbsp;&nbsp;
-                            No &nbsp; <input type="radio" value="no" th:field="*{isPrivate}"/>
+    <span th:if="${#fields.hasErrors('privte')}"
+          th:errors="*{privte}"></span><br />
+    <label>Private Listing: Yes &nbsp; <input type="radio" value="yes" th:field="*{privte}"/> &nbsp;&nbsp;
+                            No &nbsp; <input type="radio" value="no" th:field="*{privte}"/>
     </label>
-
+    <br />
 
     <input type="submit" value="Add" />
 
