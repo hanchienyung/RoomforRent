@@ -7,45 +7,15 @@
     <link href="https://fonts.googleapis.com/css?family=Caveat Brush" rel="stylesheet" />
     <link href="./css/stylesheet.css" rel="stylesheet" />
 </head>
+
 <body>
-<nav class="navbar navbar-expand-sm bg-light">
-    <ul class="navbar-nav nav-pills">
-        <li class="nav-item">
-            <a class="nav-link active" href="/">Home</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link " href="listroom">List Rooms</a>
-        </li>
-        <li class="nav-item">
-
-               <a class="nav-link " href="listprivroom">List Private Rooms</a>
-
-        </li>
-        <sec:authorize access="hasAuthorities('admin')">
-            <li class="nav-item" >
-                <a class="nav-link" href="addroom">Add a room</a>
-
-        </li>
-        </sec:authorize>
-        <li class="nav-item">
-            <a class="nav-link" href="rentroom">Rent a room</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="returnroom">Return a room</a>
-        </li>
-    </ul>
-</nav>
-this is main page
-
-Roles: <span sec:authentication="principal.authorities">[USER, ADMIN]</span>
-
-<form action="#">
-    <input type="submit" name="submit" value="Logout" />
-</form>
+<h2>this is list room page</h2>
+<div th:replace="navpage :: navlinks"></div>
 <br />
 <div class="subhead bluetext"> List of Rooms </div>
 <br />
 <div class="row">
+    <div class="col-sm reporthead bluetext">Private</div>
     <div class="col-sm reporthead bluetext">Address</div>
     <div class="col-sm reporthead bluetext">City</div>
     <div class="col-sm reporthead bluetext">State</div>
@@ -55,12 +25,17 @@ Roles: <span sec:authentication="principal.authorities">[USER, ADMIN]</span>
 
 </div>
 <div  class="row" th:each="room : ${rooms}">
+    <div class="col-sm" th:if="${room.getPrivte()}==true" th:text="Yes"></div>
+    <div class="col-sm" th:unless="${room.getPrivte()}==true" th:text="No"></div>
     <div class="col-sm" th:text="${room.address}"></div>
     <div class="col-sm" th:text="${room.city}"></div>
     <div class="col-sm" th:text="${room.state}"></div>
     <div class="col-sm" th:text="${room.price}"></div>
     <div class="col-sm"><a th:href="@{/processdetail(id=${room.id})}">Detail</a></div>
-    <div class="col-sm" th:text="${room.isRented}"></div>
+
+    <div class="col-sm" th:if="${room.getRented()}==true" th:text="Yes"></div>
+    <div class="col-sm" th:unless="${room.getRented()}==true" th:text="No"></div>
+    <!--<div class="col-sm" th:text="${room.isRented}"></div>-->
 
 
 

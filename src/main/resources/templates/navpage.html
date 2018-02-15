@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+<div th:fragment="navlinks">
+<nav class="navbar navbar-expand-sm bg-light">
+    <ul class="navbar-nav nav-pills">
+        <li class="nav-item">
+            <a class="nav-link active" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link " href="listroom">List Rooms</a>
+        </li>
+
+        <li sec:authorize="isAuthenticated()" class="nav-item">
+
+            <a class="nav-link " href="listprivroom">List Private Rooms</a>
+
+        </li>
+
+        <li sec:authorize="hasAuthority('ADMIN')" class="nav-item" >
+            <a class="nav-link" href="addroom">Add a room</a>
+        </li>
+
+
+        <li class="nav-item">
+            <a class="nav-link" href="rentroom">Rent a room</a>
+        </li>
+        <li sec:authorize="isAuthenticated()" class="nav-item">
+            <a class="nav-link" href="returnroom">Return a room</a>
+        </li>
+
+        <li sec:authorize="isAuthenticated()" class="nav-item">
+            <a class="nav-link" href="/logout">Logout</a>
+        </li>
+    </ul>
+</nav>
+</div>
+</body>
+</html>

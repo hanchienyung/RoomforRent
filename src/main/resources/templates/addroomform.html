@@ -8,25 +8,7 @@
     <link href="./css/stylesheet.css" rel="stylesheet" />
 </head>
 <body>
-<nav class="navbar navbar-expand-sm bg-light">
-    <ul class="navbar-nav nav-pills">
-        <li class="nav-item">
-            <a class="nav-link" href="/">Home</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="listroom">List rooms</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link active" href="addroom">Add a room</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="rentroom">Rent a room</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="returnroom">Return a room</a>
-        </li>
-    </ul>
-</nav>
+<div th:replace="navpage :: navlinks"></div>
 
 <!--<div class="col-md-4">
     <form th:action="@{/processadd}"

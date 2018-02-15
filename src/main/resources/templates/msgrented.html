@@ -8,23 +8,8 @@
     <link href="./css/stylesheet.css" rel="stylesheet" />
 </head>
 <body>
-<nav class="navbar navbar-expand-sm bg-light">
-    <ul class="navbar-nav">
+<div th:replace="navpage :: navlinks"></div>
 
-        <li class="nav-item">
-            <a class="nav-link" href="listroom.html">List rooms</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="addroom">Add a room</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="rentroom">Rent a room</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="returnroom">Return a room</a>
-        </li>
-    </ul>
-</nav>
 <div class="usermsg bluetext">The room has been rented successfully.</div>
 
 </body>
