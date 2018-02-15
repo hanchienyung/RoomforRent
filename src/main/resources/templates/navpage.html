@@ -11,7 +11,7 @@
         <li class="nav-item">
             <a class="nav-link active" href="/">Home</a>
         </li>
-        <li class="nav-item">
+        <li sec:authorize="isAuthenticated()" class="nav-item">
             <a class="nav-link " href="listroom">List Rooms</a>
         </li>
 

@@ -22,6 +22,7 @@ public class RoomController {
 
     @RequestMapping("/")
     public String list(Model model) {
+        model.addAttribute("rooms", roomRepository.findRoomByPrivte(Boolean.FALSE));
         return "mainpage";
     }
 
@@ -42,7 +43,15 @@ public class RoomController {
 
     @RequestMapping("/listroom")
     public String listroomForm(Model model) {
-        model.addAttribute("rooms", roomRepository.findAll());
+        if (sec:authorize="isAuthenticated()")
+        {
+           model.addAttribute("rooms", roomRepository.findAll());
+        }
+
+        else {
+
+           model.addAttribute("rooms", roomRepository.findRoomByPrivte(Boolean.FALSE));
+    }
         return "listroom";
     }
 
